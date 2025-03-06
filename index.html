@@ -153,9 +153,10 @@
             position: relative;
             height: 1px;
             background-color: rgba(255, 255, 255, 0.1);
-            margin: 3rem 0;
+            margin: 0;
             padding: 0;
             z-index: 1;
+            width: 100%;
         }
         
         /* Improved navbar styles */
@@ -339,6 +340,17 @@
             margin-bottom: 5rem;
         }
         
+        /* Remove spacing between sections to fix black bar issues */
+        .no-spacing {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Footer logo spacing fix */
+        .footer-logo img {
+            margin-right: 12px;
+        }
+        
         /* Mobile-specific adjustments */
         @media (max-width: 767.98px) {
             .footer-brand {
@@ -396,13 +408,16 @@
                 justify-content: center;
             }
             
-            .section-transition {
-                margin: 1.5rem 0;
-            }
-            
             .section-spacing {
                 margin-top: 3rem;
                 margin-bottom: 3rem;
+            }
+        }
+        
+        /* Hide navbar on larger screens */
+        @media (min-width: 992px) {
+            .navbar-desktop-hidden {
+                display: none !important;
             }
         }
     </style>
@@ -410,9 +425,9 @@
 
 </head>
 
-<body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
+<body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll" onclick="closeNavbarOnClickOutside(event)">
 
-<nav class="navbar navbar-dark bg-black fixed-top px-vw-5" id="navScroll" tabindex="0">
+<nav class="navbar navbar-dark bg-black fixed-top px-vw-5 navbar-desktop-hidden" id="navScroll" tabindex="0">
     <div class="container navbar-container">
         <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
             <img src="img/forro-hannover.png"
@@ -491,9 +506,9 @@
         </div>
     </div>
 
-    <div class="section-transition" style="margin-top: 3rem; margin-bottom: 3rem;"></div>
+    <div class="section-transition"></div>
 
-    <div class="w-100 position-relative bg-dark text-white bg-cover d-flex align-items-center section-spacing">
+    <div class="w-100 position-relative bg-dark text-white bg-cover d-flex align-items-center section-spacing no-spacing">
         <div class="container-fluid px-vw-5">
             <div class="row d-flex align-items-center position-relative justify-content-center px-0 g-5">
                 <div class="col-12 col-lg-6">
@@ -513,7 +528,7 @@
             </div>
         </div>
     </div>
-    <div class="bg-dark section-spacing">
+    <div class="bg-dark section-spacing no-spacing">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
                 <div class="col-12 col-lg-7 text-lg-end" data-aos="fade-right">
@@ -548,7 +563,7 @@
     </div>
 
     <!-- Upcoming Events Section with Filora Integration -->
-    <div class="bg-dark py-vh-3 section-spacing" id="events">
+    <div class="bg-dark py-vh-3 section-spacing no-spacing" id="events">
         <div class="container px-vw-5">
             <div class="row">
                 <div class="col-12 text-center mb-5" data-aos="fade-up">
@@ -591,7 +606,7 @@
 
     <div class="section-transition"></div>
 
-    <div class="bg-black py-vh-3 section-spacing" id="about">
+    <div class="bg-black py-vh-3 section-spacing no-spacing" id="about">
         <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
             <div class="row gx-5">
                 <div class="col-12 col-md-6">
@@ -654,7 +669,7 @@
 
     <div class="section-transition"></div>
 
-    <div class="bg-dark position-relative section-spacing">
+    <div class="bg-dark position-relative section-spacing no-spacing">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
                 <div class="col-12 col-lg-7">
@@ -673,7 +688,7 @@
 
     <div class="section-transition"></div>
 
-    <div class="bg-black section-spacing" id="join">
+    <div class="bg-black section-spacing no-spacing" id="join">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
                 <div class="col-12 col-lg-5 text-center text-lg-end" data-aos="zoom-in-right">
@@ -697,7 +712,7 @@
         </div>
     </div>
 
-    <div class="container-fluid px-vw-5 position-relative section-spacing" data-aos="fade">
+    <div class="container-fluid px-vw-5 position-relative section-spacing no-spacing" data-aos="fade">
         <div class="position-absolute w-100 h-50 bg-black top-0 start-0"></div>
         <div class="position-relative py-vh-5 bg-image rounded-5" style="background-image: url(img/DSC_0275.jpg)">
             <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
@@ -736,7 +751,7 @@
                         </p>
                         <h2 class="display-huge fw-bolder border-top border-secondary pt-5 mt-5"
                             data-aos="zoom-in-left">
-                            <i class="bi bi-person-walking fs-1"></i>→<i class="bi bi-person-hearts fs-1"></i>
+                            <i class="bi bi-people fs-1"></i>→<i class="bi bi-heart fs-1"></i>
                         </h2>
                         <p class="h4 fw-lighter text-secondary">
                             Progressive learning program from first steps to social dancing
@@ -749,7 +764,7 @@
 
     <div class="section-transition"></div>
 
-    <div class="bg-dark py-vh-5 section-spacing">
+    <div class="bg-dark py-vh-5 section-spacing no-spacing">
         <div class="container px-vw-5">
             <div class="row d-flex gx-5 align-items-center">
                 <div class="col-12 col-lg-6">
@@ -913,7 +928,7 @@
                          alt="Forró Hannover Logo"
                          class="d-inline-block align-text-top"
                          width="40">
-                    <span class="ms-2 mt-1 fw-bolder me-md-5">Forro Hannover</span>
+                    <span class="ms-3 fw-bolder me-md-5">Forro Hannover</span>
                 </a>
             </div>
             <div class="col-12 col-md-6 col-lg-4 footer-column">
@@ -1001,15 +1016,29 @@
     // Close mobile menu when clicking a nav item
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     const menuToggle = document.getElementById('navbarNav');
-    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+    const bsCollapse = menuToggle ? new bootstrap.Collapse(menuToggle, {toggle: false}) : null;
     
     navLinks.forEach(function(link) {
         link.addEventListener('click', function() {
-            if (menuToggle.classList.contains('show')) {
+            if (menuToggle && menuToggle.classList.contains('show')) {
                 bsCollapse.toggle();
             }
         });
     });
+    
+    // Close menu when clicking outside
+    function closeNavbarOnClickOutside(event) {
+        const navbarCollapse = document.getElementById('navbarNav');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            // Check if click is outside navbar
+            if (!navbarCollapse.contains(event.target) && !navbarToggler.contains(event.target)) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+                bsCollapse.hide();
+            }
+        }
+    }
 </script>
 
 </body>
