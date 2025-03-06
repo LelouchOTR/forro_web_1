@@ -148,17 +148,6 @@
             }
         }
         
-        /* Section transitions - clean straight line */
-        .section-transition {
-            position: relative;
-            height: 1px;
-            background-color: rgba(255, 255, 255, 0.1);
-            margin: 0;
-            padding: 0;
-            z-index: 1;
-            width: 100%;
-        }
-        
         /* Improved navbar styles */
         .navbar-container {
             display: flex;
@@ -341,22 +330,16 @@
             }
         }
         
-        /* Fixed: Proper section spacing */
-        .section-spacing {
-            margin-top: 5rem;
-            margin-bottom: 5rem;
+        /* Improved section spacing */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 1;
         }
         
         /* Section padding to ensure proper spacing */
         .section-padding {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-        
-        /* Fixed: Section transitions with spacing */
-        .spaced-section {
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+            padding: 5rem 0;
         }
         
         /* No spacing class for sections that need to be flush */
@@ -380,6 +363,12 @@
         .events-title {
             display: block;
             margin-bottom: 1rem;
+        }
+        
+        /* Ensure all images are properly positioned with z-index */
+        .position-relative img {
+            position: relative;
+            z-index: 2;
         }
         
         /* Mobile-specific adjustments */
@@ -440,9 +429,8 @@
             }
             
             /* Fixed: Mobile section spacing */
-            .section-spacing {
-                margin-top: 3rem;
-                margin-bottom: 3rem;
+            .section {
+                padding: 3rem 0;
             }
             
             /* Fixed: Mobile card spacing */
@@ -453,6 +441,16 @@
             /* Fixed: Mobile testimonial spacing */
             .testimonial-section {
                 margin-top: 2rem;
+            }
+            
+            /* Fix spacing between Meet Our Community and images on mobile */
+            .community-text {
+                margin-bottom: 2rem;
+            }
+            
+            /* Ensure proper spacing between images on mobile */
+            .community-images img {
+                margin-bottom: 1.5rem;
             }
         }
         
@@ -548,9 +546,7 @@
         </div>
     </div>
 
-    <div class="section-transition"></div>
-
-    <div class="w-100 position-relative bg-dark text-white bg-cover d-flex align-items-center section-spacing section-padding">
+    <div class="w-100 position-relative bg-dark text-white bg-cover d-flex align-items-center section">
         <div class="container-fluid px-vw-5">
             <div class="row d-flex align-items-center position-relative justify-content-center px-0 g-5">
                 <div class="col-12 col-lg-6">
@@ -571,9 +567,7 @@
         </div>
     </div>
     
-    <div class="section-transition"></div>
-    
-    <div class="bg-dark section-spacing section-padding">
+    <div class="bg-dark section">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
                 <div class="col-12 col-lg-7 text-lg-end" data-aos="fade-right">
@@ -607,10 +601,8 @@
         </div>
     </div>
 
-    <div class="section-transition"></div>
-
     <!-- Upcoming Events Section with Filora Integration -->
-    <div class="bg-dark py-vh-3 section-spacing section-padding" id="events">
+    <div class="bg-dark section" id="events">
         <div class="container px-vw-5">
             <div class="row">
                 <div class="col-12 text-center mb-5" data-aos="fade-up">
@@ -651,9 +643,7 @@
         </div>
     </div>
 
-    <div class="section-transition"></div>
-
-    <div class="bg-black py-vh-3 section-spacing section-padding" id="about">
+    <div class="bg-black section" id="about">
         <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
             <div class="row gx-5">
                 <div class="col-12 col-md-6">
@@ -714,18 +704,16 @@
         </div>
     </div>
 
-    <div class="section-transition"></div>
-
-    <div class="bg-dark position-relative section-spacing section-padding">
+    <div class="bg-dark position-relative section">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
-                <div class="col-12 col-lg-7">
-                    <img alt="Forró instructor" class="img-fluid rounded-5 mb-n5 shadow" data-aos="zoom-in-right" height="512"
+                <div class="col-12 col-lg-7 community-images">
+                    <img alt="Forró instructor" class="img-fluid rounded-5 mb-4 shadow" data-aos="zoom-in-right" height="512"
                          loading="lazy" src="img/DSC_0002.jpg" width="512">
-                    <img alt="Forró community member" class="img-fluid rounded-5 ms-5 mb-n5 shadow" data-aos="zoom-in-up"
+                    <img alt="Forró community member" class="img-fluid rounded-5 ms-lg-5 shadow" data-aos="zoom-in-up"
                          height="512" loading="lazy" src="img/DSC_0009.jpg" width="512">
                 </div>
-                <div class="col-12 col-lg-5 bg-dark rounded-5 py-5" data-aos="fade">
+                <div class="col-12 col-lg-5 bg-dark rounded-5 py-5 community-text" data-aos="fade">
                     <span class="h5 text-secondary fw-lighter">Meet Our Community</span>
                     <h2 class="display-4">Our passionate volunteers and instructors bring Forró to life in Hannover</h2>
                 </div>
@@ -733,9 +721,7 @@
         </div>
     </div>
 
-    <div class="section-transition"></div>
-
-    <div class="bg-black section-spacing section-padding" id="join">
+    <div class="bg-black section" id="join">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
                 <div class="col-12 col-lg-5 text-center text-lg-end" data-aos="zoom-in-right">
@@ -759,59 +745,58 @@
         </div>
     </div>
 
-    <div class="container-fluid px-vw-5 position-relative spaced-section" data-aos="fade">
-        <div class="position-absolute w-100 h-50 bg-black top-0 start-0"></div>
-        <div class="position-relative py-vh-5 bg-image rounded-5" style="background-image: url(img/DSC_0275.jpg)">
-            <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
-                <div class="row d-flex align-items-center">
-                    <div class="col-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-12">
-                                <img alt="our CEO with some nice numbers" class="img-fluid rounded-5" height="457"
-                                     loading="lazy" src="img/DSC_0024 (2).jpg" width="684">
-                            </div>
-                            <div class="col-12 col-lg-10 col-xl-8 text-center my-5">
-                                <p class="lead border-bottom pb-4 border-secondary">"Our rhythm comes from the community
-                                    - whether it's
-                                    volunteers setting up speakers, dancers sharing agua de coco recipes, or everyone
-                                    staying late to practic
-                                    that new <i>quadrado</i> sequence."</p>
-                                <span class="d-block fw-bold">Markus Schmidt<br>
-          <small class="text-secondary">President, Forro Hannover</small></span>
+    <div class="bg-black section">
+        <div class="container-fluid px-vw-5 position-relative" data-aos="fade">
+            <div class="position-relative py-vh-5 bg-image rounded-5" style="background-image: url(img/DSC_0275.jpg)">
+                <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-12">
+                                    <img alt="our CEO with some nice numbers" class="img-fluid rounded-5" height="457"
+                                         loading="lazy" src="img/DSC_0024 (2).jpg" width="684">
+                                </div>
+                                <div class="col-12 col-lg-10 col-xl-8 text-center my-5">
+                                    <p class="lead border-bottom pb-4 border-secondary">"Our rhythm comes from the community
+                                        - whether it's
+                                        volunteers setting up speakers, dancers sharing agua de coco recipes, or everyone
+                                        staying late to practic
+                                        that new <i>quadrado</i> sequence."</p>
+                                    <span class="d-block fw-bold">Markus Schmidt<br>
+              <small class="text-secondary">President, Forro Hannover</small></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-5 offset-1">
-                        <span class="h5 text-secondary fw-lighter">The numbers</span>
-                        <h2 class="display-huge fw-bolder" data-aos="zoom-in-left">8+</h2>
-                        <p class="h4 fw-lighter text-secondary">
-                            Free dancing sessions, monthly
-                        </p>
+                        <div class="col-5 offset-1">
+                            <span class="h5 text-secondary fw-lighter">The numbers</span>
+                            <h2 class="display-huge fw-bolder" data-aos="zoom-in-left">8+</h2>
+                            <p class="h4 fw-lighter text-secondary">
+                                Free dancing sessions, monthly
+                            </p>
 
-                        <h2 class="display-huge fw-bolder border-top border-secondary pt-5 mt-5"
-                            data-aos="zoom-in-left">
-                            <i class="bi bi-cup-hot fs-1"></i>+<i class="bi bi-music-note-beamed fs-1"></i>
-                        </h2>
-                        <p class="h4 fw-lighter text-secondary">
-                            Our legendary monthly <span class="text-white">Coffee Cake Forró Sunday</span> -
-                            Where Brazilian beats meet fresh cinnamon dust
-                        </p>
-                        <h2 class="display-huge fw-bolder border-top border-secondary pt-5 mt-5"
-                            data-aos="zoom-in-left">
-                            <i class="bi bi-people fs-1"></i>→<i class="bi bi-heart fs-1"></i>
-                        </h2>
-                        <p class="h4 fw-lighter text-secondary">
-                            Progressive learning program from first steps to social dancing
-                        </p>
+                            <h2 class="display-huge fw-bolder border-top border-secondary pt-5 mt-5"
+                                data-aos="zoom-in-left">
+                                <i class="bi bi-cup-hot fs-1"></i>+<i class="bi bi-music-note-beamed fs-1"></i>
+                            </h2>
+                            <p class="h4 fw-lighter text-secondary">
+                                Our legendary monthly <span class="text-white">Coffee Cake Forró Sunday</span> -
+                                Where Brazilian beats meet fresh cinnamon dust
+                            </p>
+                            <h2 class="display-huge fw-bolder border-top border-secondary pt-5 mt-5"
+                                data-aos="zoom-in-left">
+                                <i class="bi bi-people fs-1"></i>→<i class="bi bi-heart fs-1"></i>
+                            </h2>
+                            <p class="h4 fw-lighter text-secondary">
+                                Progressive learning program from first steps to social dancing
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="section-transition"></div>
-
-    <div class="bg-dark py-vh-5 section-spacing section-padding">
+    <div class="bg-dark section">
         <div class="container px-vw-5">
             <div class="row d-flex gx-5 align-items-center">
                 <div class="col-12 col-lg-6">
@@ -961,9 +946,6 @@
             </div>
         </div>
     </div>
-
-    <div class="section-transition"></div>
-
 </main>
 
 <footer class="bg-black border-top border-dark" id="contact">
