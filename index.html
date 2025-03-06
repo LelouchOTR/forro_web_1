@@ -59,7 +59,10 @@
         /* Custom styling for the Filora plugin iframe */
         .filora-plugin-container {
             overflow: hidden;
-            border-radius: 1rem;
+            border-radius: 0;
+            background-color: #212529;
+            position: relative;
+            z-index: 1;
         }
 
         /* Ensure background images are visible */
@@ -68,6 +71,7 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
+            overflow: hidden;
         }
         
         .bg-image::before {
@@ -77,13 +81,92 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
             z-index: 1;
         }
         
         .bg-image > * {
             position: relative;
             z-index: 2;
+        }
+        
+        /* Background image animation */
+        .bg-zoom {
+            animation: zoomEffect 20s infinite alternate;
+        }
+        
+        @keyframes zoomEffect {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+        
+        /* Section transitions */
+        .section-transition {
+            position: relative;
+            background: linear-gradient(to bottom, #000000, #212529);
+            height: 50px;
+            margin-top: -1px;
+            margin-bottom: -1px;
+            z-index: 0;
+        }
+        
+        .section-transition.reverse {
+            background: linear-gradient(to bottom, #212529, #000000);
+        }
+        
+        /* Instagram button fix */
+        @media (max-width: 991.98px) {
+            .navbar-brand {
+                margin-right: 0;
+                font-size: 1rem;
+            }
+            
+            .nav-link {
+                padding: 0.5rem 0.5rem;
+            }
+            
+            .navbar-insta-btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.875rem;
+            }
+        }
+        
+        /* Calendar text animation */
+        .text-animated {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .text-animated::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #6c757d;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        
+        .text-animated:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Motion effect for animated elements */
+        .motion-effect {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .motion-effect:hover {
+            transform: translateY(-5px);
         }
 
     </style>
@@ -121,15 +204,16 @@
             </li>
 
         </ul>
-        <a aria-label="Instagram" class="btn btn-outline-light" href="https://www.instagram.com/forrohannover/">
+        <a aria-label="Instagram" class="btn btn-outline-light navbar-insta-btn" href="https://www.instagram.com/forrohannover/">
             <i class="bi bi-instagram me-1"></i>
-            Instagram
+            <span class="d-none d-sm-inline">Instagram</span>
         </a>
     </div>
 </nav>
 
 <main>
     <div class="w-100 overflow-hidden position-relative bg-black text-white bg-image" data-aos="fade" style="background-image: url('img/DSC_0086.jpg');">
+        <div class="bg-zoom" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('img/DSC_0086.jpg'); background-size: cover; background-position: center;"></div>
         <div class="container py-vh-4 position-relative mt-5 px-vw-5 text-center">
             <div class="row d-flex align-items-center justify-content-center py-vh-5">
                 <div class="col-12 col-xl-10">
@@ -142,7 +226,7 @@
                         brings people together.</p>
                 </div>
                 <div class="col-12 text-center">
-                    <a class="btn btn-xl btn-light" href="#join">Join us
+                    <a class="btn btn-xl btn-light motion-effect" href="#join">Join us
                         <svg class="bi bi-arrow-right" fill="currentColor" height="16" viewBox="0 0 16 16"
                              width="16" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
@@ -154,9 +238,10 @@
         </div>
     </div>
 
-    <div class="w-100 position-relative bg-black text-white bg-cover d-flex align-items-center">
+    <div class="section-transition"></div>
+
+    <div class="w-100 position-relative bg-dark text-white bg-cover d-flex align-items-center">
         <div class="container-fluid px-vw-5">
-            <div class="position-absolute w-100 h-50 bg-dark bottom-0 start-0"></div>
             <div class="row d-flex align-items-center position-relative justify-content-center px-0 g-5">
                 <div class="col-12 col-lg-6">
                     <img alt="Forró dancers in action" class="img-fluid position-relative rounded-5 shadow" data-aos="fade-up" height="1350"
@@ -215,13 +300,13 @@
     <div class="bg-dark py-vh-3">
         <div class="container px-vw-5">
             <div class="row">
-                <div class="col-12 text-center mb-5">
+                <div class="col-12 text-center mb-5" data-aos="fade-up">
                     <span class="h5 text-secondary fw-lighter">Mark Your Calendar</span>
-                    <h2 class="display-4">Upcoming Forró Events</h2>
+                    <h2 class="display-4 text-animated">Upcoming Forró Events</h2>
                 </div>
                 <div class="col-12">
                     <!-- Filora Events Integration - Using dark gray for backgrounds and styling -->
-                    <div class="filora-plugin-container shadow rounded-5" data-aos="fade-up">
+                    <div class="filora-plugin-container" data-aos="fade-up">
                         <script src="https://service.filora.eu/assets/plugin/iframeResizer.min.js"></script>
                         <iframe id="iframe_928ded74-70e3-4a1c-992f-917c1957194d" 
                                 src="https://service.filora.eu/plugin/events?style=card&backgroundColor=212529&cardColor=343a40&textColor=ffffff&filter_host=eef98bc5-ce60-4fbc-b25a-97e862c3493e&filter_domain=forr%C3%B3" 
@@ -236,6 +321,8 @@
             </div>
         </div>
     </div>
+
+    <div class="section-transition reverse"></div>
 
     <div class="bg-black py-vh-3">
         <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
@@ -298,6 +385,8 @@
         </div>
     </div>
 
+    <div class="section-transition"></div>
+
     <div class="bg-dark position-relative">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
@@ -315,6 +404,8 @@
         </div>
     </div>
 
+    <div class="section-transition reverse"></div>
+
     <div class="bg-black" id="join">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
@@ -327,7 +418,7 @@
                         <span class="fs-4 me-2 fw-light">€</span><span class="border-bottom border-5">5</span><span
                             class="fs-6 fw-light">/class</span></h2>
                     <p class="lead text-secondary">Support our community-run dance group with affordable drop-in rates. Members enjoy discounted classes, priority registration for special events, and voting rights at our annual association meetings.</p>
-                    <a class="btn btn-xl btn-light" href="#">Become a Member
+                    <a class="btn btn-xl btn-light motion-effect" href="#">Become a Member
                         <svg class="bi bi-arrow-right" fill="currentColor" height="16" viewBox="0 0 16 16"
                              width="16" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
@@ -388,6 +479,8 @@
             </div>
         </div>
     </div>
+
+    <div class="section-transition"></div>
 
     <div class="bg-dark py-vh-5">
         <div class="container px-vw-5">
@@ -539,6 +632,8 @@
             </div>
         </div>
     </div>
+
+    <div class="section-transition reverse"></div>
 
 </main>
 
