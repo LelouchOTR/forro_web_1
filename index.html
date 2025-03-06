@@ -59,10 +59,20 @@
         /* Custom styling for the Filora plugin iframe */
         .filora-plugin-container {
             overflow: hidden;
-            border-radius: 0;
-            background-color: #212529;
+            border-radius: 1rem;
+            background-color: transparent;
             position: relative;
             z-index: 1;
+            box-shadow: none;
+            padding: 0.5rem;
+        }
+
+        /* Style for the events container */
+        .events-wrapper {
+            background-color: transparent;
+            border-radius: 1rem;
+            overflow: hidden;
+            padding: 1rem;
         }
 
         /* Ensure background images are visible */
@@ -301,17 +311,26 @@
                     <h2 class="display-4 text-animated">Upcoming Forró Events</h2>
                 </div>
                 <div class="col-12">
-                    <!-- Filora Events Integration - Using dark gray for backgrounds and styling -->
-                    <div class="filora-plugin-container" data-aos="fade-up">
-                        <script src="https://service.filora.eu/assets/plugin/iframeResizer.min.js"></script>
-                        <iframe id="iframe_928ded74-70e3-4a1c-992f-917c1957194d" 
-                                src="https://service.filora.eu/plugin/events?style=card&backgroundColor=212529&cardColor=343a40&textColor=ffffff&filter_host=eef98bc5-ce60-4fbc-b25a-97e862c3493e&filter_domain=forr%C3%B3" 
-                                width="100%" 
-                                frameBorder="0">
-                        </iframe>
-                        <script>
-                            iFrameResize({ log: false }, "#iframe_928ded74-70e3-4a1c-992f-917c1957194d")
-                        </script>
+                    <!-- Filora Events Integration - Redesigned for better aesthetics -->
+                    <div class="events-wrapper rounded-5 shadow-sm" data-aos="fade-up">
+                        <div class="filora-plugin-container rounded-5">
+                            <script src="https://service.filora.eu/assets/plugin/iframeResizer.min.js"></script>
+                            <iframe id="iframe_928ded74-70e3-4a1c-992f-917c1957194d" 
+                                    src="https://service.filora.eu/plugin/events?style=card&limit=4&cardSize=large&backgroundColor=212529&cardColor=343a40&textColor=ffffff&borderRadius=1rem&filter_host=eef98bc5-ce60-4fbc-b25a-97e862c3493e&filter_domain=forr%C3%B3" 
+                                    width="100%" 
+                                    frameBorder="0"
+                                    class="rounded-5">
+                            </iframe>
+                            <script>
+                                iFrameResize({ log: false }, "#iframe_928ded74-70e3-4a1c-992f-917c1957194d")
+                            </script>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="#" class="btn btn-outline-light btn-lg motion-effect">
+                            View All Events
+                            <i class="bi bi-calendar-event ms-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
