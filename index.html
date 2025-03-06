@@ -105,30 +105,14 @@
             }
         }
         
-        /* Section transitions - improved with subtle blending */
+        /* Section transitions - clean straight line */
         .section-transition {
             position: relative;
-            height: 30px;
-            margin-top: -1px;
-            margin-bottom: -1px;
-            z-index: 0;
-            overflow: hidden;
-        }
-        
-        /* Black to dark transition */
-        .section-transition:not(.reverse) {
-            background: linear-gradient(to bottom, 
-                rgba(0, 0, 0, 1) 0%, 
-                rgba(17, 19, 21, 0.95) 40%,
-                rgba(33, 37, 41, 0.9) 100%);
-        }
-        
-        /* Dark to black transition */
-        .section-transition.reverse {
-            background: linear-gradient(to bottom, 
-                rgba(33, 37, 41, 0.9) 0%, 
-                rgba(17, 19, 21, 0.95) 60%,
-                rgba(0, 0, 0, 1) 100%);
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 0;
+            padding: 0;
+            z-index: 1;
         }
         
         /* Instagram button fix */
@@ -334,7 +318,7 @@
         </div>
     </div>
 
-    <div class="section-transition reverse"></div>
+    <div class="section-transition"></div>
 
     <div class="bg-black py-vh-3">
         <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
@@ -416,7 +400,7 @@
         </div>
     </div>
 
-    <div class="section-transition reverse"></div>
+    <div class="section-transition"></div>
 
     <div class="bg-black" id="join">
         <div class="container px-vw-5 py-vh-5">
@@ -645,7 +629,7 @@
         </div>
     </div>
 
-    <div class="section-transition reverse"></div>
+    <div class="section-transition"></div>
 
 </main>
 
