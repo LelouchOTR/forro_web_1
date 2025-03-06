@@ -62,6 +62,30 @@
             border-radius: 1rem;
         }
 
+        /* Ensure background images are visible */
+        .bg-image {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        .bg-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        
+        .bg-image > * {
+            position: relative;
+            z-index: 2;
+        }
+
     </style>
 
 
@@ -105,8 +129,7 @@
 </nav>
 
 <main>
-    <div class="w-100 overflow-hidden position-relative bg-black text-white" data-aos="fade" style="background-image: url('img/webp/abstract16.webp'); background-size: cover; background-position: center;">
-        <div class="position-absolute w-100 h-100 bg-black opacity-75 top-0 start-0"></div>
+    <div class="w-100 overflow-hidden position-relative bg-black text-white bg-image" data-aos="fade" style="background-image: url('img/DSC_0086.jpg');">
         <div class="container py-vh-4 position-relative mt-5 px-vw-5 text-center">
             <div class="row d-flex align-items-center justify-content-center py-vh-5">
                 <div class="col-12 col-xl-10">
@@ -129,7 +152,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="w-100 position-relative bg-black text-white bg-cover d-flex align-items-center">
@@ -185,8 +207,6 @@
                 </div>
                 <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
                       fill-rule="evenodd"></path>
-
-
             </div>
         </div>
     </div>
@@ -219,13 +239,12 @@
 
     <div class="bg-black py-vh-3">
         <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
-
             <div class="row gx-5">
                 <div class="col-12 col-md-6">
                     <div class="card bg-transparent mb-5" data-aos="zoom-in-up">
                         <div class="bg-dark shadow rounded-5 p-0">
                             <img alt="Forró Pé de Serra style" class="img-fluid rounded-5 no-bottom-radius" height="327" loading="lazy"
-                                 src="img/webp/abstract3.webp" width="582">
+                                 src="img/DSC_0003.jpg" width="582">
                             <div class="p-5">
                                 <h2 class="fw-lighter">Forró Pé de Serra</h2>
                                 <p class="pb-4 text-secondary">Experience the traditional roots of Forró with the accordion-led Pé de Serra style. This intimate, rhythmic dance connects directly to the rural traditions of Northeast Brazil.</p>
@@ -237,7 +256,7 @@
                     <div class="card bg-transparent" data-aos="zoom-in-up">
                         <div class="bg-dark shadow rounded-5 p-0">
                             <img alt="Special weekend workshops" class="img-fluid rounded-5 no-bottom-radius" height="442" loading="lazy"
-                                 src="img/webp/abstract2.webp" width="582">
+                                 src="img/DSC_0050.jpg" width="582">
                             <div class="p-5">
                                 <h2 class="fw-lighter">Weekend Intensives</h2>
                                 <p class="pb-4 text-secondary">Go deeper into your Forró practice with our weekend workshops. Visiting teachers from Brazil and across Europe share authentic techniques and cultural insights.</p>
@@ -254,7 +273,7 @@
                     <div class="card bg-transparent mb-5 mt-5" data-aos="zoom-in-up">
                         <div class="bg-dark shadow rounded-5 p-0">
                             <img alt="Forró Universitário style" class="img-fluid rounded-5 no-bottom-radius" height="390" loading="lazy"
-                                 src="img/webp/abstract17.webp" width="582">
+                                 src="img/DSC_0006.jpg" width="582">
                             <div class="p-5">
                                 <h2 class="fw-lighter">Forró Universitário</h2>
                                 <p class="pb-4 text-secondary">Popular among younger dancers, this more acrobatic style developed in urban university settings with influences from other dance forms. Expect dynamic movements and creative variations.</p>
@@ -266,7 +285,7 @@
                     <div class="card bg-transparent" data-aos="zoom-in-up">
                         <div class="bg-dark shadow rounded-5 p-0">
                             <img alt="Forró live music events" class="img-fluid rounded-5 no-bottom-radius" height="327" loading="lazy"
-                                 src="img/webp/abstract4.webp" width="582">
+                                 src="img/DSC_0094.jpg" width="582">
                             <div class="p-5">
                                 <h2 class="fw-lighter">Live Music Events</h2>
                                 <p class="pb-4 text-secondary">Experience the authentic energy of Forró with our quarterly live music events. From traditional trios featuring accordion, zabumba and triangle to modern fusions with local bands.</p>
@@ -276,19 +295,17 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
+
     <div class="bg-dark position-relative">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
-
                 <div class="col-12 col-lg-7">
                     <img alt="Forró instructor" class="img-fluid rounded-5 mb-n5 shadow" data-aos="zoom-in-right" height="512"
-                         loading="lazy" src="img/webp/person9.webp" width="512">
+                         loading="lazy" src="img/DSC_0002.jpg" width="512">
                     <img alt="Forró community member" class="img-fluid rounded-5 ms-5 mb-n5 shadow" data-aos="zoom-in-up"
-                         height="512" loading="lazy" src="img/webp/person11.webp" width="512">
+                         height="512" loading="lazy" src="img/DSC_0009.jpg" width="512">
                 </div>
                 <div class="col-12 col-lg-5 bg-dark rounded-5 py-5" data-aos="fade">
                     <span class="h5 text-secondary fw-lighter">Meet Our Community</span>
@@ -320,20 +337,18 @@
                 </div>
             </div>
         </div>
-
     </div>
+
     <div class="container-fluid px-vw-5 position-relative" data-aos="fade">
         <div class="position-absolute w-100 h-50 bg-black top-0 start-0"></div>
-        <div class="position-relative py-vh-5 bg-cover bg-center rounded-5"
-             style="background-image: url(img/webp/abstract12.webp)">
+        <div class="position-relative py-vh-5 bg-image rounded-5" style="background-image: url(img/DSC_0275.jpg)">
             <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
                 <div class="row d-flex align-items-center">
-
                     <div class="col-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
                         <div class="row d-flex justify-content-center">
                             <div class="col-12">
                                 <img alt="our CEO with some nice numbers" class="img-fluid rounded-5" height="457"
-                                     loading="lazy" src="img/webp/person103.webp" width="684">
+                                     loading="lazy" src="img/DSC_0024 (2).jpg" width="684">
                             </div>
                             <div class="col-12 col-lg-10 col-xl-8 text-center my-5">
                                 <p class="lead border-bottom pb-4 border-secondary">"Our rhythm comes from the community
@@ -371,9 +386,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
     <div class="bg-dark py-vh-5">
         <div class="container px-vw-5">
             <div class="row d-flex gx-5 align-items-center">
@@ -417,7 +432,7 @@
                             tutorials."</p>
                         <div class="d-flex justify-content-start align-items-center border-top border-secondary pt-3">
                             <img alt="a nice person" class="rounded-circle me-3" data-aos="fade" height="96"
-                                 loading="lazy" src="img/webp/person14.webp" width="96">
+                                 loading="lazy" src="img/DSC_0094.jpg" width="96">
                             <div>
                                 <span class="h6 fw-5">Jack Doemunsky</span><br>
                                 <small class="text-secondary">Local Nurse</small>
@@ -463,7 +478,7 @@
                             xeque-virado turn!"</p>
                         <div class="d-flex justify-content-start align-items-center border-top border-secondary pt-3">
                             <img alt="a nice person" class="rounded-circle me-3" data-aos="fade" height="96"
-                                 loading="lazy" src="img/webp/person13.webp" width="96">
+                                 loading="lazy" src="img/DSC_0214.jpg" width="96">
                             <div>
                                 <span class="h6 fw-5">Mathew Fischer</span><br>
                                 <small class="text-secondary">Local Teacher</small>
@@ -513,7 +528,7 @@
                         <p class="lead">"I came to Germany from São Paulo and missed the Forró scenes back home. Finding this community in Hannover was like discovering a piece of Brazil! The music, the warmth of the people - it's authentic and welcoming to everyone, no matter your background."</p>
                         <div class="d-flex justify-content-start align-items-center border-top pt-3">
                             <img alt="a nice person" class="rounded-circle me-3" data-aos="fade" height="96"
-                                 loading="lazy" src="img/webp/person16.webp" width="96">
+                                 loading="lazy" src="img/DSC_0024.jpg" width="96">
                             <div>
                                 <span class="h6 fw-5">Ana Silva</span><br>
                                 <small>Exchange Student</small>
@@ -523,7 +538,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 </main>
