@@ -169,16 +169,17 @@
             flex-shrink: 0;
         }
         
+        /* Fix for navbar items centering on desktop */
         .navbar-nav {
-            flex-grow: 1;
-            justify-content: center;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
         }
         
         .navbar-insta-btn {
             flex-shrink: 0;
             font-size: 1rem;
             padding: 0.5rem 1rem;
-            margin-left: auto;
         }
         
         /* Full screen hero section on desktop */
@@ -228,13 +229,115 @@
             text-align: left;
         }
         
+        /* Footer styling improvements */
+        .footer-logo {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-logo:hover, .footer-logo:focus {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Fix for fancy link underlines in footer */
+        .link-fancy-light {
+            display: inline-block;
+            position: relative;
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-decoration: none;
+        }
+        
+        .link-fancy-light::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        
+        .link-fancy-light:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Auto-hide navbar on mobile when scrolling down */
+        .navbar-scrolled-down {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .navbar-scrolled-up {
+            transform: translateY(0);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        /* Hamburger menu styling */
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            padding: 0.5rem;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        /* Mobile-specific adjustments */
         @media (max-width: 767.98px) {
             .footer-brand {
                 justify-content: center;
                 margin-bottom: 1rem;
             }
+            
+            .navbar-container {
+                flex-wrap: nowrap;
+            }
+            
+            .navbar-collapse {
+                background-color: rgba(0, 0, 0, 0.95);
+                border-radius: 0 0 1rem 1rem;
+                padding: 1rem;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+            }
+            
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .dropdown-mobile-menu {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .mobile-nav-item {
+                width: 100%;
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-social-button {
+                width: 100%;
+                margin-top: 1rem;
+                display: flex;
+                justify-content: center;
+            }
         }
-
     </style>
 
 
@@ -252,25 +355,37 @@
             <span class="ms-md-1 mt-1 fw-bolder me-md-5">Forro Hannover</span>
         </a>
 
-        <ul class="navbar-nav mb-2 mb-lg-0 list-group list-group-horizontal">
-            <li class="nav-item">
-                <a aria-label="Homepage" class="nav-link fs-5" href="index.html">
-                    Home
-                </a>
-            </li>
-            <li class="nav-item">
-                <a aria-label="A sample content page" class="nav-link fs-5" href="content.html">
-                    Content
-                </a>
-            </li>
-            <li class="nav-item">
-                <a aria-label="A system message page" class="nav-link fs-5" href="system.html">
-                    System
-                </a>
-            </li>
-        </ul>
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         
-        <a aria-label="Instagram" class="btn btn-outline-light navbar-insta-btn" href="https://www.instagram.com/forrohannover/">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item mobile-nav-item">
+                    <a aria-label="Homepage" class="nav-link fs-5" href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item mobile-nav-item">
+                    <a aria-label="A sample content page" class="nav-link fs-5" href="content.html">
+                        Content
+                    </a>
+                </li>
+                <li class="nav-item mobile-nav-item">
+                    <a aria-label="A system message page" class="nav-link fs-5" href="system.html">
+                        System
+                    </a>
+                </li>
+                <li class="nav-item mobile-social-button d-md-none">
+                    <a aria-label="Instagram" class="btn btn-outline-light navbar-insta-btn" href="https://www.instagram.com/forrohannover/">
+                        <i class="bi bi-instagram me-1"></i>
+                        Instagram
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <a aria-label="Instagram" class="btn btn-outline-light navbar-insta-btn d-none d-md-inline-block" href="https://www.instagram.com/forrohannover/">
             <i class="bi bi-instagram me-1"></i>
             <span class="d-none d-sm-inline">Instagram</span>
         </a>
@@ -716,7 +831,7 @@
     <div class="container py-vh-4 text-secondary fw-lighter">
         <div class="row">
             <div class="col-12 col-lg-5 py-4 text-center text-lg-start">
-                <a class="footer-brand pe-md-4 fs-4 d-inline-flex align-items-center" href="index.html">
+                <a class="footer-brand pe-md-4 fs-4 d-inline-flex align-items-center footer-logo" href="index.html">
                     <img src="img/forro-hannover.png"
                          alt="Forró Hannover Logo"
                          class="d-inline-block align-text-top"
@@ -727,16 +842,16 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <h5 class="mb-3">Connect With Us</h5>
                 <div class="d-flex flex-column">
-                    <a class="link-fancy link-fancy-light mb-2" href="https://www.instagram.com/forrohannover/">
+                    <a class="link-fancy-light mb-2" href="https://www.instagram.com/forrohannover/">
                         <i class="bi bi-instagram me-2"></i> Instagram
                     </a>
-                    <a class="link-fancy link-fancy-light mb-2" href="#">
+                    <a class="link-fancy-light mb-2" href="#">
                         <i class="bi bi-facebook me-2"></i> Facebook Group
                     </a>
-                    <a class="link-fancy link-fancy-light mb-2" href="#">
+                    <a class="link-fancy-light mb-2" href="#">
                         <i class="bi bi-whatsapp me-2"></i> WhatsApp Community
                     </a>
-                    <a class="link-fancy link-fancy-light" href="mailto:info@forrohannover.de">
+                    <a class="link-fancy-light" href="mailto:info@forrohannover.de">
                         <i class="bi bi-envelope me-2"></i> Email Us
                     </a>
                 </div>
@@ -746,7 +861,7 @@
                 <p>Kulturzentrum Pavillon<br>
                    Lister Meile 4<br>
                    30161 Hannover<br>
-                   <a class="link-fancy link-fancy-light" href="https://maps.app.goo.gl/example" target="_blank">
+                   <a class="link-fancy-light" href="https://maps.app.goo.gl/example" target="_blank">
                       <i class="bi bi-geo-alt me-2"></i>View on Map
                    </a>
                 </p>
@@ -767,22 +882,57 @@
     });
 </script>
 <script>
-    let scrollpos = window.scrollY
-    const header = document.querySelector(".navbar")
-    const header_height = header.offsetHeight
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
+    let lastScrollTop = 0;
 
-    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm")
-    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm")
+    // Function to add class on scroll
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
 
-    window.addEventListener('scroll', function () {
+    // Function to hide navbar on scroll down (mobile only)
+    function handleScroll() {
+        const st = window.pageYOffset || document.documentElement.scrollTop;
         scrollpos = window.scrollY;
 
         if (scrollpos >= header_height) {
-            add_class_on_scroll()
+            add_class_on_scroll();
+            
+            // Auto-hide navbar when scrolling down on mobile
+            if (window.innerWidth < 992) {
+                if (st > lastScrollTop && st > header_height) {
+                    // Scrolling down
+                    header.classList.add('navbar-scrolled-down');
+                    header.classList.remove('navbar-scrolled-up');
+                } else {
+                    // Scrolling up
+                    header.classList.remove('navbar-scrolled-down');
+                    header.classList.add('navbar-scrolled-up');
+                }
+            }
         } else {
-            remove_class_on_scroll()
+            remove_class_on_scroll();
         }
-    })
+        
+        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    }
+
+    // Listen for scroll events
+    window.addEventListener('scroll', handleScroll);
+    
+    // Close mobile menu when clicking a nav item
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const menuToggle = document.getElementById('navbarNav');
+    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+    
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (menuToggle.classList.contains('show')) {
+                bsCollapse.toggle();
+            }
+        });
+    });
 </script>
 
 </body>
