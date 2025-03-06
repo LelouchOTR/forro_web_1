@@ -17,6 +17,17 @@
 
 
     <style>
+        /* Fix horizontal scrollbar issue */
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        /* Make all images and containers responsive */
+        img, .container, .container-fluid, .row {
+            max-width: 100%;
+        }
 
         /* inter-300 - latin */
         @font-face {
@@ -146,21 +157,35 @@
             z-index: 1;
         }
         
-        /* Instagram button fix */
-        @media (max-width: 991.98px) {
-            .navbar-brand {
-                margin-right: 0;
-                font-size: 1rem;
-            }
-            
-            .nav-link {
-                padding: 0.5rem 0.5rem;
-            }
-            
-            .navbar-insta-btn {
-                padding: 0.25rem 0.5rem;
-                font-size: 0.875rem;
-            }
+        /* Improved navbar styles */
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .navbar-brand {
+            flex-shrink: 0;
+        }
+        
+        .navbar-nav {
+            flex-grow: 1;
+            justify-content: center;
+        }
+        
+        .navbar-insta-btn {
+            flex-shrink: 0;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            margin-left: auto;
+        }
+        
+        /* Full screen hero section on desktop */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
         
         /* Calendar text animation */
@@ -195,6 +220,20 @@
         .motion-effect:hover {
             transform: translateY(-5px);
         }
+        
+        /* Simplified footer */
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+        
+        @media (max-width: 767.98px) {
+            .footer-brand {
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+        }
 
     </style>
 
@@ -204,7 +243,7 @@
 <body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
 
 <nav class="navbar navbar-dark bg-black fixed-top px-vw-5" id="navScroll" tabindex="0">
-    <div class="container">
+    <div class="container navbar-container">
         <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
             <img src="img/forro-hannover.png"
                  alt="Forró Hannover Logo"
@@ -213,7 +252,7 @@
             <span class="ms-md-1 mt-1 fw-bolder me-md-5">Forro Hannover</span>
         </a>
 
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 list-group list-group-horizontal">
+        <ul class="navbar-nav mb-2 mb-lg-0 list-group list-group-horizontal">
             <li class="nav-item">
                 <a aria-label="Homepage" class="nav-link fs-5" href="index.html">
                     Home
@@ -229,8 +268,8 @@
                     System
                 </a>
             </li>
-
         </ul>
+        
         <a aria-label="Instagram" class="btn btn-outline-light navbar-insta-btn" href="https://www.instagram.com/forrohannover/">
             <i class="bi bi-instagram me-1"></i>
             <span class="d-none d-sm-inline">Instagram</span>
@@ -239,7 +278,7 @@
 </nav>
 
 <main>
-    <div class="w-100 overflow-hidden position-relative bg-black text-white bg-image" data-aos="fade" style="background-image: url('img/DSC_0086.jpg');">
+    <div class="w-100 overflow-hidden position-relative bg-black text-white bg-image hero-section" data-aos="fade" style="background-image: url('img/DSC_0086.jpg');">
         <div class="bg-zoom" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('img/DSC_0086.jpg'); background-size: cover; background-position: center;"></div>
         <div class="container py-vh-4 position-relative mt-5 px-vw-5 text-center">
             <div class="row d-flex align-items-center justify-content-center py-vh-5">
@@ -677,72 +716,45 @@
     <div class="container py-vh-4 text-secondary fw-lighter">
         <div class="row">
             <div class="col-12 col-lg-5 py-4 text-center text-lg-start">
-                <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
+                <a class="footer-brand pe-md-4 fs-4 d-inline-flex align-items-center" href="index.html">
                     <img src="img/forro-hannover.png"
                          alt="Forró Hannover Logo"
                          class="d-inline-block align-text-top"
                          width="40">
-                    <span class="ms-md-1 mt-1 fw-bolder me-md-5">Forró Hannover</span>
+                    <span class="ms-md-1 mt-1 fw-bolder me-md-5">Forro Hannover</span>
                 </a>
             </div>
-            <div class="col border-end border-dark">
-                <span class="h6">About Us</span>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">Our Story</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">Instructors</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">Community</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">Contact</a>
-                    </li>
-                </ul>
+            <div class="col-12 col-md-6 col-lg-4">
+                <h5 class="mb-3">Connect With Us</h5>
+                <div class="d-flex flex-column">
+                    <a class="link-fancy link-fancy-light mb-2" href="https://www.instagram.com/forrohannover/">
+                        <i class="bi bi-instagram me-2"></i> Instagram
+                    </a>
+                    <a class="link-fancy link-fancy-light mb-2" href="#">
+                        <i class="bi bi-facebook me-2"></i> Facebook Group
+                    </a>
+                    <a class="link-fancy link-fancy-light mb-2" href="#">
+                        <i class="bi bi-whatsapp me-2"></i> WhatsApp Community
+                    </a>
+                    <a class="link-fancy link-fancy-light" href="mailto:info@forrohannover.de">
+                        <i class="bi bi-envelope me-2"></i> Email Us
+                    </a>
+                </div>
             </div>
-            <div class="col border-end border-dark">
-                <span class="h6">Dance Classes</span>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">Class Schedule</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">Beginners</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">Intermediate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">Advanced</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">Workshops</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col">
-                <span class="h6">Connect</span>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="https://www.instagram.com/forrohannover/">Instagram</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">Facebook Group</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="#">WhatsApp Community</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link-fancy link-fancy-light" href="mailto:info@forrohannover.de">Email Us</a>
-                    </li>
-                </ul>
+            <div class="col-12 col-md-6 col-lg-3">
+                <h5 class="mb-3">Visit Us</h5>
+                <p>Kulturzentrum Pavillon<br>
+                   Lister Meile 4<br>
+                   30161 Hannover<br>
+                   <a class="link-fancy link-fancy-light" href="https://maps.app.goo.gl/example" target="_blank">
+                      <i class="bi bi-geo-alt me-2"></i>View on Map
+                   </a>
+                </p>
             </div>
         </div>
     </div>
     <div class="container text-center small py-vh-2 border-top border-dark">
-        © 2023 Forró Hannover e.V. • Template by <a class="link-fancy link-fancy-light" href="https://templatedeck.com" target="_blank">templatedeck.com</a>
+        © 2023 Forró Hannover e.V.
     </div>
 </footer>
 
@@ -770,8 +782,6 @@
         } else {
             remove_class_on_scroll()
         }
-
-        console.log(scrollpos)
     })
 </script>
 
