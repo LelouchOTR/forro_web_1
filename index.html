@@ -371,6 +371,37 @@
             z-index: 2;
         }
         
+        /* Testimonial card styles - removed bubbles/glow effects */
+        .testimonial-card {
+            background-color: #212529;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Center the president's image in testimonial */
+        .testimonial-img {
+            display: block;
+            margin: 0 auto 1rem auto;
+            border-radius: 50%;
+            object-fit: cover;
+            width: 100px;
+            height: 100px;
+        }
+        
+        /* Volunteer cards - removed bubbles effect */
+        .volunteer-card {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .volunteer-card:hover {
+            transform: translateY(-5px);
+        }
+        
         /* Mobile-specific adjustments */
         @media (max-width: 767.98px) {
             .footer-brand {
@@ -454,10 +485,33 @@
             }
         }
         
-        /* Hide navbar on larger screens */
+        /* Hide mobile menu on desktop */
         @media (min-width: 992px) {
-            .navbar-desktop-hidden {
-                display: none !important;
+            .navbar-collapse {
+                display: flex !important;
+                flex-basis: auto;
+            }
+            
+            .navbar-nav {
+                flex-direction: row;
+            }
+            
+            .navbar-toggler {
+                display: none;
+            }
+            
+            .nav-item {
+                margin: 0 0.5rem;
+            }
+            
+            .mobile-nav-item {
+                width: auto;
+                text-align: left;
+                margin: 0 0.5rem;
+            }
+            
+            .mobile-social-button {
+                display: none;
             }
         }
     </style>
@@ -617,11 +671,10 @@
                             <div class="skeleton-loader rounded-5" id="events-skeleton">
                                 <div class="skeleton-card"></div>
                                 <div class="skeleton-card"></div>
-                                <div class="skeleton-card"></div>
                             </div>
                             <script src="https://service.filora.eu/assets/plugin/iframeResizer.min.js"></script>
                             <iframe id="iframe_928ded74-70e3-4a1c-992f-917c1957194d" 
-                                    src="https://service.filora.eu/plugin/events?style=card&limit=3&cardSize=large&backgroundColor=212529&cardColor=343a40&textColor=ffffff&borderRadius=1rem&filter_host=eef98bc5-ce60-4fbc-b25a-97e862c3493e&filter_domain=forr%C3%B3" 
+                                    src="https://service.filora.eu/plugin/events?style=card&limit=2&cardSize=large&backgroundColor=212529&cardColor=343a40&textColor=ffffff&borderRadius=1rem&filter_host=eef98bc5-ce60-4fbc-b25a-97e862c3493e&filter_domain=forr%C3%B3" 
                                     width="100%" 
                                     frameBorder="0"
                                     class="rounded-5"
@@ -648,7 +701,7 @@
             <div class="row gx-5">
                 <div class="col-12 col-md-6">
                     <div class="card bg-transparent mb-5" data-aos="zoom-in-up">
-                        <div class="bg-dark shadow rounded-5 p-0">
+                        <div class="bg-dark shadow rounded-5 p-0 volunteer-card">
                             <img alt="Forró Pé de Serra style" class="img-fluid rounded-5 no-bottom-radius" height="327" loading="lazy"
                                  src="img/DSC_0003.jpg" width="582">
                             <div class="p-5">
@@ -660,7 +713,7 @@
                     </div>
 
                     <div class="card bg-transparent" data-aos="zoom-in-up">
-                        <div class="bg-dark shadow rounded-5 p-0">
+                        <div class="bg-dark shadow rounded-5 p-0 volunteer-card">
                             <img alt="Special weekend workshops" class="img-fluid rounded-5 no-bottom-radius" height="442" loading="lazy"
                                  src="img/DSC_0050.jpg" width="582">
                             <div class="p-5">
@@ -677,7 +730,7 @@
                         <h2 class="display-4">Discover the different dimensions of Forró culture and community</h2>
                     </div>
                     <div class="card bg-transparent mb-5 mt-5" data-aos="zoom-in-up">
-                        <div class="bg-dark shadow rounded-5 p-0">
+                        <div class="bg-dark shadow rounded-5 p-0 volunteer-card">
                             <img alt="Forró Universitário style" class="img-fluid rounded-5 no-bottom-radius" height="390" loading="lazy"
                                  src="img/DSC_0006.jpg" width="582">
                             <div class="p-5">
@@ -689,7 +742,7 @@
                     </div>
 
                     <div class="card bg-transparent" data-aos="zoom-in-up">
-                        <div class="bg-dark shadow rounded-5 p-0">
+                        <div class="bg-dark shadow rounded-5 p-0 volunteer-card">
                             <img alt="Forró live music events" class="img-fluid rounded-5 no-bottom-radius" height="327" loading="lazy"
                                  src="img/DSC_0094.jpg" width="582">
                             <div class="p-5">
@@ -752,8 +805,8 @@
                     <div class="row d-flex align-items-center">
                         <div class="col-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
                             <div class="row d-flex justify-content-center">
-                                <div class="col-12">
-                                    <img alt="our CEO with some nice numbers" class="img-fluid rounded-5" height="457"
+                                <div class="col-12 text-center">
+                                    <img alt="our CEO with some nice numbers" class="img-fluid rounded-5 testimonial-img mx-auto" height="457"
                                          loading="lazy" src="img/DSC_0024 (2).jpg" width="684">
                                 </div>
                                 <div class="col-12 col-lg-10 col-xl-8 text-center my-5">
@@ -800,7 +853,7 @@
         <div class="container px-vw-5">
             <div class="row d-flex gx-5 align-items-center">
                 <div class="col-12 col-lg-6">
-                    <div class="rounded-5 bg-black p-5 shadow" data-aos="zoom-in-right">
+                    <div class="rounded-5 bg-black p-5 shadow testimonial-card" data-aos="zoom-in-right">
                         <div class="fs-1">
                             <svg class="bi bi-star-fill" fill="currentColor" height="16" viewBox="0 0 16 16"
                                  width="16" xmlns="http://www.w3.org/2000/svg">
@@ -846,7 +899,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="rounded-5 bg-black p-5 shadow mt-5" data-aos="zoom-in-right">
+                    <div class="rounded-5 bg-black p-5 shadow mt-5 testimonial-card" data-aos="zoom-in-right">
                         <div class="fs-1">
                             <svg class="bi bi-star-fill" fill="currentColor" height="16" viewBox="0 0 16 16"
                                  width="16" xmlns="http://www.w3.org/2000/svg">
@@ -899,7 +952,7 @@
                         <span class="h5 text-secondary fw-lighter">What our dancers say</span>
                         <h2 class="display-4">Hear from community members who've discovered the joy of Forró in Hannover</h2>
                     </div>
-                    <div class="rounded-5 bg-black p-5 shadow mt-5 gradient" data-aos="zoom-in-left">
+                    <div class="rounded-5 bg-black p-5 shadow mt-5 testimonial-card" data-aos="zoom-in-left">
                         <div class="fs-1">
                             <svg class="bi bi-star-fill" fill="currentColor" height="16" viewBox="0 0 16 16"
                                  width="16" xmlns="http://www.w3.org/2000/svg">
