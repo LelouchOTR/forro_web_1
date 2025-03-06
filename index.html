@@ -400,6 +400,20 @@
             width: 100%;
         }
         
+        /* President testimonial specific styles */
+        .president-testimonial {
+            display: block;
+            margin: 2rem auto;
+            border-radius: 50%;
+            object-fit: cover;
+            width: 220px;
+            height: 220px;
+        }
+        
+        .president-container {
+            padding: 2.5rem;
+        }
+        
         /* Volunteer cards - removed bubbles effect */
         .volunteer-card {
             border-radius: 1rem;
@@ -524,6 +538,17 @@
             /* Ensure proper spacing between images on mobile */
             .community-images img {
                 margin-bottom: 1.5rem;
+            }
+            
+            /* Adjust president image size on mobile */
+            .president-testimonial {
+                width: 180px;
+                height: 180px;
+                margin: 1.5rem auto;
+            }
+            
+            .president-container {
+                padding: 1.5rem;
             }
         }
         
@@ -847,15 +872,15 @@
                 <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
                     <div class="row d-flex align-items-center">
                         <div class="col-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
-                            <div class="testimonial-container p-4">
-                                <img alt="our CEO with some nice numbers" class="img-fluid rounded-5 testimonial-img" height="457"
+                            <div class="president-container p-5">
+                                <img alt="our CEO with some nice numbers" class="img-fluid rounded-5 president-testimonial" height="457"
                                      loading="lazy" src="img/DSC_0024 (2).jpg" width="684">
-                                <p class="lead border-bottom pb-4 border-secondary">"Our rhythm comes from the community
+                                <p class="lead border-bottom pb-4 border-secondary mt-4">"Our rhythm comes from the community
                                     - whether it's
                                     volunteers setting up speakers, dancers sharing agua de coco recipes, or everyone
                                     staying late to practic
                                     that new <i>quadrado</i> sequence."</p>
-                                <span class="d-block fw-bold">Markus Schmidt<br>
+                                <span class="d-block fw-bold mt-4">Markus Schmidt<br>
                                 <small class="text-secondary">President, Forro Hannover</small></span>
                             </div>
                         </div>
