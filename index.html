@@ -268,18 +268,24 @@
             transform-origin: bottom left;
         }
         
-        /* Auto-hide navbar on mobile when scrolling down */
+        /* Fixed: Navbar hiding behavior */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: transform 0.3s ease-in-out;
+            z-index: 1030;
+        }
+        
         .navbar-scrolled-down {
             transform: translateY(-100%);
-            transition: transform 0.3s ease-in-out;
         }
         
         .navbar-scrolled-up {
             transform: translateY(0);
-            transition: transform 0.3s ease-in-out;
         }
         
-        /* Hamburger menu styling */
+        /* Hamburger menu styling - fixed */
         .navbar-toggler {
             border: none;
             background: transparent;
@@ -291,6 +297,7 @@
             box-shadow: none;
         }
         
+        /* Fixed: Toggler icon */
         .navbar-toggler-icon {
             background-image: url("image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
@@ -334,13 +341,25 @@
             }
         }
         
-        /* Added spacing between sections */
+        /* Fixed: Proper section spacing */
         .section-spacing {
             margin-top: 5rem;
             margin-bottom: 5rem;
         }
         
-        /* Remove spacing between sections to fix black bar issues */
+        /* Section padding to ensure proper spacing */
+        .section-padding {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        
+        /* Fixed: Section transitions with spacing */
+        .spaced-section {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* No spacing class for sections that need to be flush */
         .no-spacing {
             margin: 0;
             padding: 0;
@@ -349,6 +368,18 @@
         /* Footer logo spacing fix */
         .footer-logo img {
             margin-right: 12px;
+        }
+        
+        /* Fixed: Event section spacing */
+        .event-section-btn {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Fixed: Make "Upcoming Events" text appear on new line for desktop */
+        .events-title {
+            display: block;
+            margin-bottom: 1rem;
         }
         
         /* Mobile-specific adjustments */
@@ -408,9 +439,20 @@
                 justify-content: center;
             }
             
+            /* Fixed: Mobile section spacing */
             .section-spacing {
                 margin-top: 3rem;
                 margin-bottom: 3rem;
+            }
+            
+            /* Fixed: Mobile card spacing */
+            .card-mobile-spacing {
+                margin-bottom: 2rem;
+            }
+            
+            /* Fixed: Mobile testimonial spacing */
+            .testimonial-section {
+                margin-top: 2rem;
             }
         }
         
@@ -427,7 +469,7 @@
 
 <body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll" onclick="closeNavbarOnClickOutside(event)">
 
-<nav class="navbar navbar-dark bg-black fixed-top px-vw-5 navbar-desktop-hidden" id="navScroll" tabindex="0">
+<nav class="navbar navbar-dark bg-black fixed-top px-vw-5" id="navScroll" tabindex="0">
     <div class="container navbar-container">
         <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
             <img src="img/forro-hannover.png"
@@ -508,7 +550,7 @@
 
     <div class="section-transition"></div>
 
-    <div class="w-100 position-relative bg-dark text-white bg-cover d-flex align-items-center section-spacing no-spacing">
+    <div class="w-100 position-relative bg-dark text-white bg-cover d-flex align-items-center section-spacing section-padding">
         <div class="container-fluid px-vw-5">
             <div class="row d-flex align-items-center position-relative justify-content-center px-0 g-5">
                 <div class="col-12 col-lg-6">
@@ -528,7 +570,10 @@
             </div>
         </div>
     </div>
-    <div class="bg-dark section-spacing no-spacing">
+    
+    <div class="section-transition"></div>
+    
+    <div class="bg-dark section-spacing section-padding">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
                 <div class="col-12 col-lg-7 text-lg-end" data-aos="fade-right">
@@ -562,13 +607,15 @@
         </div>
     </div>
 
+    <div class="section-transition"></div>
+
     <!-- Upcoming Events Section with Filora Integration -->
-    <div class="bg-dark py-vh-3 section-spacing no-spacing" id="events">
+    <div class="bg-dark py-vh-3 section-spacing section-padding" id="events">
         <div class="container px-vw-5">
             <div class="row">
                 <div class="col-12 text-center mb-5" data-aos="fade-up">
                     <span class="h5 text-secondary fw-lighter">Mark Your Calendar</span>
-                    <h2 class="display-4 text-animated">Upcoming Forró Events</h2>
+                    <h2 class="display-4 events-title">Upcoming Forró Events</h2>
                 </div>
                 <div class="col-12">
                     <!-- Filora Events Integration - Redesigned with skeleton loader -->
@@ -593,7 +640,7 @@
                             </script>
                         </div>
                     </div>
-                    <div class="text-center mt-4">
+                    <div class="text-center event-section-btn">
                         <a href="#" class="btn btn-outline-light btn-lg motion-effect">
                             View All Events
                             <i class="bi bi-calendar-event ms-2"></i>
@@ -606,7 +653,7 @@
 
     <div class="section-transition"></div>
 
-    <div class="bg-black py-vh-3 section-spacing no-spacing" id="about">
+    <div class="bg-black py-vh-3 section-spacing section-padding" id="about">
         <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
             <div class="row gx-5">
                 <div class="col-12 col-md-6">
@@ -669,7 +716,7 @@
 
     <div class="section-transition"></div>
 
-    <div class="bg-dark position-relative section-spacing no-spacing">
+    <div class="bg-dark position-relative section-spacing section-padding">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
                 <div class="col-12 col-lg-7">
@@ -688,7 +735,7 @@
 
     <div class="section-transition"></div>
 
-    <div class="bg-black section-spacing no-spacing" id="join">
+    <div class="bg-black section-spacing section-padding" id="join">
         <div class="container px-vw-5 py-vh-5">
             <div class="row d-flex align-items-center">
                 <div class="col-12 col-lg-5 text-center text-lg-end" data-aos="zoom-in-right">
@@ -712,7 +759,7 @@
         </div>
     </div>
 
-    <div class="container-fluid px-vw-5 position-relative section-spacing no-spacing" data-aos="fade">
+    <div class="container-fluid px-vw-5 position-relative spaced-section" data-aos="fade">
         <div class="position-absolute w-100 h-50 bg-black top-0 start-0"></div>
         <div class="position-relative py-vh-5 bg-image rounded-5" style="background-image: url(img/DSC_0275.jpg)">
             <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
@@ -764,7 +811,7 @@
 
     <div class="section-transition"></div>
 
-    <div class="bg-dark py-vh-5 section-spacing no-spacing">
+    <div class="bg-dark py-vh-5 section-spacing section-padding">
         <div class="container px-vw-5">
             <div class="row d-flex gx-5 align-items-center">
                 <div class="col-12 col-lg-6">
@@ -863,7 +910,7 @@
 
                 </div>
                 <div class="col-12 col-lg-6">
-                    <div class="p-5 pt-0" data-aos="fade">
+                    <div class="p-5 pt-0 testimonial-section" data-aos="fade">
                         <span class="h5 text-secondary fw-lighter">What our dancers say</span>
                         <h2 class="display-4">Hear from community members who've discovered the joy of Forró in Hannover</h2>
                     </div>
@@ -983,7 +1030,7 @@
     const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
     const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
 
-    // Function to hide navbar on scroll down (mobile only)
+    // Fixed: Improved navbar show/hide on scroll functionality
     function handleScroll() {
         const st = window.pageYOffset || document.documentElement.scrollTop;
         scrollpos = window.scrollY;
@@ -991,20 +1038,20 @@
         if (scrollpos >= header_height) {
             add_class_on_scroll();
             
-            // Auto-hide navbar when scrolling down on mobile
-            if (window.innerWidth < 992) {
-                if (st > lastScrollTop && st > header_height) {
-                    // Scrolling down
-                    header.classList.add('navbar-scrolled-down');
-                    header.classList.remove('navbar-scrolled-up');
-                } else {
-                    // Scrolling up
-                    header.classList.remove('navbar-scrolled-down');
-                    header.classList.add('navbar-scrolled-up');
-                }
+            // Auto-hide navbar when scrolling down (improved for all screen sizes)
+            if (st > lastScrollTop && st > header_height) {
+                // Scrolling down - hide navbar
+                header.classList.add('navbar-scrolled-down');
+                header.classList.remove('navbar-scrolled-up');
+            } else if (st < lastScrollTop) {
+                // Scrolling up - show navbar
+                header.classList.remove('navbar-scrolled-down');
+                header.classList.add('navbar-scrolled-up');
             }
         } else {
             remove_class_on_scroll();
+            header.classList.remove('navbar-scrolled-down');
+            header.classList.remove('navbar-scrolled-up');
         }
         
         lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
